@@ -13,7 +13,7 @@ def post_message(message):
 def set_timer():
     now = datetime.now()
     target = datetime(*(now.timetuple()[:3] + (10,)))
-    if target < now:
+    if target <= now:
         delta = timedelta(days=1)
         target += delta
 
@@ -37,7 +37,7 @@ def get_random_remark():
 
 
 def init_slack_timer():
-    tweet()
+    set_timer()
 
 
 if __name__ == '__main__':
