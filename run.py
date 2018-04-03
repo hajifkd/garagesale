@@ -4,26 +4,17 @@ from datetime import datetime, timedelta
 from threading import Timer
 import random
 import requests
+from apscheduler.schedulers.background import BackgroundScheduler
+import atexit
 
 
 def post_message(message):
     requests.post(app.config['SLACK_WEBHOOK_URL'], json={"text": message})
 
 
-def set_timer():
-    now = datetime.now()
-    target = datetime(*(now.timetuple()[:3] + (10,)))
-    if target <= now:
-        delta = timedelta(days=1)
-        target += delta
-
-    second = int((target - now).total_seconds())
-    Timer(second, tweet, []).start()
-
-
 def tweet():
     post_message("本日の名言:%s" % get_random_remark())
-    set_timer()
+    print('aa')
 
 
 def get_random_remark():
@@ -37,7 +28,10 @@ def get_random_remark():
 
 
 def init_slack_timer():
-    set_timer()
+    scheduler = BackgroundScheduler()
+    scheduler.start()
+    scheduler.add_job(tweet, 'cron', hour=10, minute=0)
+    atexit.register(lambda: scheduler.shutdown())
 
 
 if __name__ == '__main__':
