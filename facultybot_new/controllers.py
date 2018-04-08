@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request
 from facultybot_new import db
 from facultybot_new.models import Faculty, Remark
 
-api = Blueprint('api', 'api')
+api = Blueprint('api', __name__)
 
 
 @api.route('/faculties', methods=['GET'])
