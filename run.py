@@ -28,7 +28,7 @@ def get_random_remark():
 
 
 def init_slack_timer():
-    scheduler = BackgroundScheduler()
+    scheduler = BackgroundScheduler(timezone='Asia/Tokyo')
     scheduler.start()
     scheduler.add_job(tweet, 'cron', hour=10, minute=0)
     atexit.register(lambda: scheduler.shutdown())
