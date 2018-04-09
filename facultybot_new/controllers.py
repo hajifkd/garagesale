@@ -1,8 +1,16 @@
 from flask import Blueprint, jsonify, request
-from facultybot_new import db
+from facultybot_new import db, app
 from facultybot_new.models import Faculty, Remark
+from facultybot_new.slack import tweet
+
 
 api = Blueprint('api', __name__)
+
+
+@api.route('/tweet/' + app.config['SLACK_URL_SECRET'] , methods=['GET'])
+def post_to_slack():
+    tweet()
+    return jsonify({'success': True})
 
 
 @api.route('/faculties', methods=['GET'])
