@@ -15,10 +15,10 @@
   </head>
   <body>
     <div class="container-fluid">
-      <h1>Add remarks</h1>
+      <h1>名言を追加</h1>
       <form id="main-form">
         <div class="form-group">
-          <label for="faculty">Faculty name</label>
+          <label for="faculty">発言したFaculty</label>
           <div class="row">
             <div class="col-10">
               <select class="form-control" id="faculty">
@@ -32,11 +32,15 @@
 
 
         <div class="form-group">
-          <label for="remark">Remark</label>
-          <input class="form-control" id="remark" placeholder="Some remark" />
+          <label for="remark">名言</label>
+          <div class="row">
+            <div class="col-10">
+              <input class="form-control" id="remark" placeholder="Some remark" />
+            </div>
+          </div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Send</button>
+        <button type="submit" class="btn btn-primary">送信</button>
       </form>
     </div>
 
@@ -44,7 +48,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="confirmModalLabel">Send</h5>
+            <h5 class="modal-title" id="confirmModalLabel">送信の確認</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -80,7 +84,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="addFacultyModalLabel">Send</h5>
+            <h5 class="modal-title" id="addFacultyModalLabel">Facultyを追加</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>

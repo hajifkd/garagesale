@@ -71,6 +71,7 @@ async function addFaculty() {
 }
 
 $(() => {
+  toastr.options.positionClass = 'toast-bottom-right';
   fetch("/api/v1/faculties").then(d => d.json()).then(d => {
     let faculty = $("#faculty");
     for (let f of d.results) {
