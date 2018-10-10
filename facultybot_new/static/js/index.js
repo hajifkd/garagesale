@@ -67,7 +67,7 @@ async function addFaculty() {
 
   let result = await res[0].json();
 
-  $("#faculty").append(`<option value=${result.id}>${faculty_name}</option>`);
+  $("#faculty").append(`<option value=${result.faculty_id}>${faculty_name}</option>`);
 }
 
 $(() => {
