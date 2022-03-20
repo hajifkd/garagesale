@@ -9,7 +9,7 @@ window.onload = () => {
         video: {
             width: 300,
             height: 200,
-            //facingMode: { exact: "environment" }  // リアカメラを利用する場合
+            facingMode: { exact: "environment" }  // リアカメラを利用する場合
         }
     };
 
